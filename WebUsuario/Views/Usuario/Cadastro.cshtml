@@ -1,0 +1,130 @@
+﻿@model WebUsuario.Models.UsuarioCadastroModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+</head>
+<body class="bg-secondary">
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-4 offset-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h5>Cadastro <strong>WebUsuario</strong></h5>
+                            <p>Cadastrar novo Usuário</p>
+                            <hr />
+                        </div>
+
+                        <div class="mb-2 text-success">
+                            <strong>@TempData["MensagemSucesso"]</strong>
+                        </div>
+                        <div class="mb-2 text-danger">
+                            <strong>@TempData["MensagemErro"]</strong>
+                        </div>
+
+                        @using (Html.BeginForm())
+                        {
+
+                            <label>Nome do usuário:</label>
+                            @Html.TextBoxFor(model => model.Nome, new { @class = "form-control", @placeholder = "Digite aqui" })
+
+                            <span class="text-danger">
+                                @Html.ValidationMessageFor(model => model.Nome)
+                            </span>
+
+                            <br />
+
+
+                            <label>Email de acesso:</label>
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Digite aqui" })
+
+                            <span class="text-danger">
+                                @Html.ValidationMessageFor(model => model.Email)
+                            </span>
+
+                            <br />
+                             
+                            <label>Cpf do Usuario:</label> 
+                             
+                            @Html.TextBoxFor(model => model.Cpf, new {@type="text", @class="form-control cpf-mask", @placeholder="Ex.: 000.000.000-00" })
+
+                            <span class="text-danger">
+                                @Html.ValidationMessageFor(model => model.Cpf)
+                            </span>
+
+                            <br />
+
+
+                            <label>Senha de acesso:</label>
+                            @Html.PasswordFor(model => model.Senha, new { @class = "form-control", @placeholder = "Digite aqui" })
+
+                            <span class="text-danger">
+                                @Html.ValidationMessageFor(model => model.Senha)
+                            </span>
+
+                            <br />
+
+                            <label>Confirme sua senha:</label>
+                            @Html.PasswordFor(model => model.SenhaConfirmacao, new { @class = "form-control", @placeholder = "Digite aqui" })
+
+                            <span class="text-danger">
+                                @Html.ValidationMessageFor(model => model.SenhaConfirmacao)
+                            </span>
+
+                            <br />
+
+                            <div class="d-grid">
+                                <input type="submit" value="Realizar Cadastro" class="btn btn-success" />
+                            </div>
+                            <div class="d-grid mt-2">
+                                <a href="/Home/Index" class="btn btn-outline-primary">
+
+                                    Concluido? <strong>Volte ao inicio!</strong>
+
+                                </a>
+                            </div>
+                        }
+
+                                               
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+
+</body>
+</html>
+
+@section styles {
+    
+    <link rel="stylesheet" href="//cdn.mask.net/1.11.5/css/jquery.mask.min.css" />
+
+}
+
+    @section scripts {
+    <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $('#consultamask').Mask({
+
+            });
+        });
+    </script>
+
+}

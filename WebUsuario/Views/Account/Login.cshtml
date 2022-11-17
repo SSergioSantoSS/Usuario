@@ -1,0 +1,78 @@
+﻿@model WebUsuario.Models.AccountLoginModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+</head>
+<body class="bg-black">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4 offset-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h5>Projeto <strong>WebUsuario</strong></h5>
+                            <p>Acessar Conta de Usuário</p>
+                            <hr />
+                        </div>
+
+                        <div class="mb-2 text-danger">
+                            <strong>@TempData["MensagemErro"]</strong>
+                        </div>
+
+                        @using (Html.BeginForm())
+
+                        {
+
+                            <label>Entre com seu email para Login:</label>
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Digite aqui seu E-mail" })
+
+                            <div class="text-danger">
+                                @Html.ValidationMessageFor(model => model.Email)
+
+                            </div>
+
+                            <br />
+                            <label>Entre com sua senha:</label>
+                            @Html.PasswordFor(model => model.Senha, new { @class = "form-control", @placeholder = "Digite aqui sua Senha" })
+
+                            <div class="text-danger">
+                                @Html.ValidationMessageFor(model => model.Senha)
+
+                            </div>
+
+                            <br />
+                            <div class="d-grid">
+                                <input type="submit" value="Acessar" class="btn btn-success" />
+
+                            </div>
+                        }
+
+                        <div class="d-grid mt-2">
+                            <a href="/Account/Register" class="btn btn-outline-primary">
+
+                                Não possui conta? <strong>Cadastre-se aqui!</strong>
+
+                            </a>
+                        </div>
+
+                        <div class="text-center mt-2">
+                            <small>UsuarioWeb v1.0.0</small>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <!-- menu superior -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">WebUsuario</a>
+
+            <button class="navbar-toggler" type="button" data-bs-
+                    toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse"
+                 id="navbarSupportedContent">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                           href="/Home/Index">Página inicial</a>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                           href="/Usuario/MinhaConta">Minha Conta</a>
+
+                    </li>
+                   
+                </ul>
+                <form class="d-flex">
+                    <a href="/Account/Login" class="btn btn-outline-light"
+                       onclick="return confirm('Deseja realmente encerrar sua sessão e sair do sistema?');">
+
+                        Encerrar Sessão
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- mensagem de sucesso -->
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show"
+         role="alert">
+
+            <strong>Sucesso!</strong> @TempData["MensagemSucesso"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                aria-label="Close"></button>
+
+        </div>
+    }
+    <!-- corpo da página -->
+    <div class="container mt-3">
+        <div class="card card-body">
+            <h5>Seja bem vindo a <strong>WebUsuario</strong>!</h5>
+            <p>
+                Aqui você poderá cadastrar e gerenciar Usuarios, utilize o menu acima para começar!
+            </p>
+
+        </div>
+    </div>
+    <!-- arquivos do tipo javascript -->
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html> 
